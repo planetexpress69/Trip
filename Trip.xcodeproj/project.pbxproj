@@ -7,25 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BDF5C271DAEDC03008FB26D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF5C261DAEDC03008FB26D /* AppDelegate.swift */; };
-		5BDF5C291DAEDC03008FB26D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDF5C281DAEDC03008FB26D /* ViewController.swift */; };
-		5BDF5C2B1DAEDC03008FB26D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF5C2A1DAEDC03008FB26D /* Assets.xcassets */; };
-		5BDF5C2E1DAEDC04008FB26D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDF5C2C1DAEDC04008FB26D /* Main.storyboard */; };
+		5B4F37AD1DAF79000068FA16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37AC1DAF79000068FA16 /* AppDelegate.swift */; };
+		5B4F37AF1DAF79000068FA16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37AE1DAF79000068FA16 /* ViewController.swift */; };
+		5B4F37B11DAF79000068FA16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B01DAF79000068FA16 /* Assets.xcassets */; };
+		5B4F37B41DAF79000068FA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B21DAF79000068FA16 /* Main.storyboard */; };
+		5B4F37BB1DAF82120068FA16 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_AEXML" /* AEXML.framework */; };
+		5B4F37BD1DAF851C0068FA16 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37BC1DAF851C0068FA16 /* WindowController.swift */; };
+		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */; };
+		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */; };
+		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */; };
+		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift */; };
+		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5B4F37B91DAF82040068FA16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = __RootObject_ /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "______Target_AEXML";
+			remoteInfo = AEXML;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		5BDF5C231DAEDC03008FB26D /* Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BDF5C261DAEDC03008FB26D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BDF5C281DAEDC03008FB26D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5BDF5C2A1DAEDC03008FB26D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5BDF5C2D1DAEDC04008FB26D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5BDF5C2F1DAEDC04008FB26D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B4F37AA1DAF79000068FA16 /* Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B4F37AC1DAF79000068FA16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Trip/AppDelegate.swift; sourceTree = "<group>"; };
+		5B4F37AE1DAF79000068FA16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../Trip/ViewController.swift; sourceTree = "<group>"; };
+		5B4F37B01DAF79000068FA16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Trip/Assets.xcassets; sourceTree = "<group>"; };
+		5B4F37B31DAF79000068FA16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B4F37B51DAF79000068FA16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Trip/Info.plist; sourceTree = "<group>"; };
+		5B4F37BC1DAF851C0068FA16 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Trip.xcodeproj/Configs/Project.xcconfig /* Trip.xcodeproj/Configs/Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Trip.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
+		"_____Product_AEXML" /* AEXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AEXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5BDF5C201DAEDC03008FB26D /* Frameworks */ = {
+		5B4F37A71DAF79000068FA16 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
+			files = (
+				5B4F37BB1DAF82120068FA16 /* AEXML.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		"___LinkPhase_AEXML" /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,72 +67,122 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5BDF5C1A1DAEDC03008FB26D = {
+		5B4F37AB1DAF79000068FA16 /* Trip */ = {
 			isa = PBXGroup;
 			children = (
-				5BDF5C251DAEDC03008FB26D /* Trip */,
-				5BDF5C241DAEDC03008FB26D /* Products */,
+				5B4F37AC1DAF79000068FA16 /* AppDelegate.swift */,
+				5B4F37BC1DAF851C0068FA16 /* WindowController.swift */,
+				5B4F37AE1DAF79000068FA16 /* ViewController.swift */,
+				5B4F37B01DAF79000068FA16 /* Assets.xcassets */,
+				5B4F37B21DAF79000068FA16 /* Main.storyboard */,
+				5B4F37B51DAF79000068FA16 /* Info.plist */,
+			);
+			path = Trip;
+			sourceTree = "<group>";
+		};
+		Dependencies_ /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				"_______Group_AEXML" /* AEXML */,
+				5B4F37AB1DAF79000068FA16 /* Trip */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		"___RootGroup_" = {
+			isa = PBXGroup;
+			children = (
+				__PBXFileRef_Package.swift /* Package.swift */,
+				"_____Configs_" /* Configs */,
+				Dependencies_ /* Dependencies */,
+				"____Products_" /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5BDF5C241DAEDC03008FB26D /* Products */ = {
+		"____Products_" /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BDF5C231DAEDC03008FB26D /* Trip.app */,
+				"_____Product_AEXML" /* AEXML.framework */,
+				5B4F37AA1DAF79000068FA16 /* Trip.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5BDF5C251DAEDC03008FB26D /* Trip */ = {
+		"_____Configs_" /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				5BDF5C261DAEDC03008FB26D /* AppDelegate.swift */,
-				5BDF5C281DAEDC03008FB26D /* ViewController.swift */,
-				5BDF5C2A1DAEDC03008FB26D /* Assets.xcassets */,
-				5BDF5C2C1DAEDC04008FB26D /* Main.storyboard */,
-				5BDF5C2F1DAEDC04008FB26D /* Info.plist */,
+				__PBXFileRef_Trip.xcodeproj/Configs/Project.xcconfig /* Trip.xcodeproj/Configs/Project.xcconfig */,
 			);
-			path = Trip;
+			name = Configs;
+			sourceTree = "<group>";
+		};
+		"_______Group_AEXML" /* AEXML */ = {
+			isa = PBXGroup;
+			children = (
+				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */,
+				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */,
+				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */,
+				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift */,
+				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift */,
+			);
+			name = AEXML;
+			path = "Packages/AEXML-4.0.1/Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5BDF5C221DAEDC03008FB26D /* Trip */ = {
+		5B4F37A91DAF79000068FA16 /* Trip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5BDF5C321DAEDC04008FB26D /* Build configuration list for PBXNativeTarget "Trip" */;
+			buildConfigurationList = 5B4F37B81DAF79000068FA16 /* Build configuration list for PBXNativeTarget "Trip" */;
 			buildPhases = (
-				5BDF5C1F1DAEDC03008FB26D /* Sources */,
-				5BDF5C201DAEDC03008FB26D /* Frameworks */,
-				5BDF5C211DAEDC03008FB26D /* Resources */,
+				5B4F37A61DAF79000068FA16 /* Sources */,
+				5B4F37A71DAF79000068FA16 /* Frameworks */,
+				5B4F37A81DAF79000068FA16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5B4F37BA1DAF82040068FA16 /* PBXTargetDependency */,
+			);
+			name = Trip;
+			productName = Trip;
+			productReference = 5B4F37AA1DAF79000068FA16 /* Trip.app */;
+			productType = "com.apple.product-type.application";
+		};
+		"______Target_AEXML" /* AEXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = "_______Confs_AEXML" /* Build configuration list for PBXNativeTarget "AEXML" */;
+			buildPhases = (
+				CompilePhase_AEXML /* Sources */,
+				"___LinkPhase_AEXML" /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Trip;
-			productName = Trip;
-			productReference = 5BDF5C231DAEDC03008FB26D /* Trip.app */;
-			productType = "com.apple.product-type.application";
+			name = AEXML;
+			productName = AEXML;
+			productReference = "_____Product_AEXML" /* AEXML.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5BDF5C1B1DAEDC03008FB26D /* Project object */ = {
+		__RootObject_ /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = Raketenmann;
+				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					5BDF5C221DAEDC03008FB26D = {
+					5B4F37A91DAF79000068FA16 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = GUA53KASL8;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 5BDF5C1E1DAEDC03008FB26D /* Build configuration list for PBXProject "Trip" */;
+			buildConfigurationList = "___RootConfs_" /* Build configuration list for PBXProject "Trip" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -106,56 +190,80 @@
 				en,
 				Base,
 			);
-			mainGroup = 5BDF5C1A1DAEDC03008FB26D;
-			productRefGroup = 5BDF5C241DAEDC03008FB26D /* Products */;
+			mainGroup = "___RootGroup_";
+			productRefGroup = "____Products_" /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5BDF5C221DAEDC03008FB26D /* Trip */,
+				"______Target_AEXML" /* AEXML */,
+				5B4F37A91DAF79000068FA16 /* Trip */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5BDF5C211DAEDC03008FB26D /* Resources */ = {
+		5B4F37A81DAF79000068FA16 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BDF5C2B1DAEDC03008FB26D /* Assets.xcassets in Resources */,
-				5BDF5C2E1DAEDC04008FB26D /* Main.storyboard in Resources */,
+				5B4F37B11DAF79000068FA16 /* Assets.xcassets in Resources */,
+				5B4F37B41DAF79000068FA16 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5BDF5C1F1DAEDC03008FB26D /* Sources */ = {
+		5B4F37A61DAF79000068FA16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BDF5C291DAEDC03008FB26D /* ViewController.swift in Sources */,
-				5BDF5C271DAEDC03008FB26D /* AppDelegate.swift in Sources */,
+				5B4F37AF1DAF79000068FA16 /* ViewController.swift in Sources */,
+				5B4F37AD1DAF79000068FA16 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CompilePhase_AEXML /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift in Sources */,
+				5B4F37BD1DAF851C0068FA16 /* WindowController.swift in Sources */,
+				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift in Sources */,
+				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift in Sources */,
+				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift in Sources */,
+				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5B4F37BA1DAF82040068FA16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "______Target_AEXML" /* AEXML */;
+			targetProxy = 5B4F37B91DAF82040068FA16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		5BDF5C2C1DAEDC04008FB26D /* Main.storyboard */ = {
+		5B4F37B21DAF79000068FA16 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5BDF5C2D1DAEDC04008FB26D /* Base */,
+				5B4F37B31DAF79000068FA16 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../Trip;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5BDF5C301DAEDC04008FB26D /* Debug */ = {
+		5B4F37B61DAF79000068FA16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -174,8 +282,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GUA53KASL8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -192,19 +302,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Trip/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = de.teambender.Trip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		5BDF5C311DAEDC04008FB26D /* Release */ = {
+		5B4F37B71DAF79000068FA16 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -223,8 +339,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GUA53KASL8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -235,62 +353,96 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = Trip/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = de.teambender.Trip;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
-		5BDF5C331DAEDC04008FB26D /* Debug */ = {
+		_ReleaseConf_AEXML /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GUA53KASL8;
-				INFOPLIST_FILE = Trip/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.teambender.Trip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				INFOPLIST_FILE = Trip.xcodeproj/AEXML_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = AEXML;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		"___DebugConf_AEXML" /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				INFOPLIST_FILE = Trip.xcodeproj/AEXML_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = AEXML;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		5BDF5C341DAEDC04008FB26D /* Release */ = {
+		"_____Release_" /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = __PBXFileRef_Trip.xcodeproj/Configs/Project.xcconfig /* Trip.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GUA53KASL8;
-				INFOPLIST_FILE = Trip/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = de.teambender.Trip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
+		};
+		"_______Debug_" /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = __PBXFileRef_Trip.xcodeproj/Configs/Project.xcconfig /* Trip.xcodeproj/Configs/Project.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5BDF5C1E1DAEDC03008FB26D /* Build configuration list for PBXProject "Trip" */ = {
+		5B4F37B81DAF79000068FA16 /* Build configuration list for PBXNativeTarget "Trip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BDF5C301DAEDC04008FB26D /* Debug */,
-				5BDF5C311DAEDC04008FB26D /* Release */,
+				5B4F37B61DAF79000068FA16 /* Debug */,
+				5B4F37B71DAF79000068FA16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		5BDF5C321DAEDC04008FB26D /* Build configuration list for PBXNativeTarget "Trip" */ = {
+		"___RootConfs_" /* Build configuration list for PBXProject "Trip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5BDF5C331DAEDC04008FB26D /* Debug */,
-				5BDF5C341DAEDC04008FB26D /* Release */,
+				"_______Debug_" /* Debug */,
+				"_____Release_" /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		"_______Confs_AEXML" /* Build configuration list for PBXNativeTarget "AEXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				"___DebugConf_AEXML" /* Debug */,
+				_ReleaseConf_AEXML /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5BDF5C1B1DAEDC03008FB26D /* Project object */;
+	rootObject = __RootObject_ /* Project object */;
 }

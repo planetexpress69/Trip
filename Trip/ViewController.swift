@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Trip
 //
-//  Created by Martin Kautz on 12.10.16.
-//  Copyright © 2016 Raketenmann. All rights reserved.
+//  Created by Martin Kautz on 13.10.16.
+//
 //
 
 import Cocoa
@@ -22,6 +22,4 @@ class ViewController: NSViewController {
         }
     }
 
-
 }
-
