@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0122461DB0CEF80042588E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37BC1DAF851C0068FA16 /* WindowController.swift */; };
 		5B4F37AD1DAF79000068FA16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37AC1DAF79000068FA16 /* AppDelegate.swift */; };
 		5B4F37AF1DAF79000068FA16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37AE1DAF79000068FA16 /* ViewController.swift */; };
 		5B4F37B11DAF79000068FA16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B01DAF79000068FA16 /* Assets.xcassets */; };
 		5B4F37B41DAF79000068FA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B21DAF79000068FA16 /* Main.storyboard */; };
 		5B4F37BB1DAF82120068FA16 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_AEXML" /* AEXML.framework */; };
-		5B4F37BD1DAF851C0068FA16 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37BC1DAF851C0068FA16 /* WindowController.swift */; };
 		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */; };
 		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */; };
 		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */; };
@@ -219,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B4F37AF1DAF79000068FA16 /* ViewController.swift in Sources */,
+				5B0122461DB0CEF80042588E /* WindowController.swift in Sources */,
 				5B4F37AD1DAF79000068FA16 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,7 +229,6 @@
 			buildActionMask = 0;
 			files = (
 				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift in Sources */,
-				5B4F37BD1DAF851C0068FA16 /* WindowController.swift in Sources */,
 				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift in Sources */,
 				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift in Sources */,
 				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift in Sources */,

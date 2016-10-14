@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AEXML
 
 
 class WindowController: NSWindowController {
@@ -41,13 +42,18 @@ class WindowController: NSWindowController {
     // ---------------------------------------------------------------------------------------------
     func _load(_ url: URL) {
 
+        let viewController = (self.window?.contentViewController) as! ViewController
+        viewController.startSpinner()
+
+        //viewController.startSpinner();
 
         DispatchQueue.global().async {
 
             guard let
                 data = try? Data(contentsOf: url)
-                else { return }
-
+            else {
+                return
+            }
             do {
                 let xmlDoc = try AEXMLDocument(xml: data)
                 var prevLat:Double = 0.0
@@ -63,46 +69,41 @@ class WindowController: NSWindowController {
                 for item in xmlDoc.root["trk"].children {
                     if item.name == "trkseg" {
                         for pos in item.children {
-
                             tick = tick + 1
-
+                            // pyramid of doom! \o/
                             if (tick % 15 == 0) {
-
-
                                 if let lat = pos.attributes["lat"]  {
                                     if let lon = pos.attributes["lon"]  {
                                         if let time = pos.children[0].value {
                                             if let datetime = self.stringToDate(sDate: time) {
-
                                                 if prevLat != 0.0 {
                                                     let distance = (self.haversineDinstance(la1: prevLat, lo1: prevLon, la2: lat.doubleValue, lo2: lon.doubleValue))
                                                     completeDistance += distance
                                                     let diff = (datetime.timeIntervalSince(prevTime))
                                                     let speed = (distance / diff * 3.6 / 1.852)
-
                                                     if speed < infinity && speed > maxSpeed {
                                                         timeOfMaxSpeed = datetime
                                                         prevTimeOfMaxSpeed = prevTime
                                                         maxSpeed = speed
                                                     }
-
                                                 }
                                                 prevLat = lat.doubleValue
                                                 prevLon = lon.doubleValue
                                                 prevTime = datetime
                                             }
                                         }
-
                                     }
                                 }
                                 i = i + 1;
                             }
-
                         }
                     }
                 }
 
                 DispatchQueue.main.async {
+
+                    viewController.stopSpinner()
+
                     print("Number of pos: \(i)")
                     print("Distance     : \(completeDistance / 1000 / 1.852) nm")
                     print("Max speed    : \(maxSpeed) knots @ \(prevTimeOfMaxSpeed) - \(timeOfMaxSpeed)")
@@ -119,7 +120,6 @@ class WindowController: NSWindowController {
             catch {
                 print("\(error)")
             }
-
         }
     }
 
