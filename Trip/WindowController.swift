@@ -51,49 +51,54 @@ class WindowController: NSWindowController {
 
             guard let
                 data = try? Data(contentsOf: url)
-            else {
-                return
+                else {
+                    return
             }
             do {
                 let xmlDoc = try AEXMLDocument(xml: data)
+
+                // memorize
                 var prevLat:Double = 0.0
                 var prevLon:Double = 0.0
                 var prevTime: Date = Date()
+                var prevTimeOfMaxSpeed: Date = Date()
+
+                // results
                 var completeDistance:Double = 0.0
                 var maxSpeed: Double = 0.0
                 var timeOfMaxSpeed: Date = Date()
-                var prevTimeOfMaxSpeed: Date = Date()
+
+                // define infinity
                 let infinity = Double.infinity
+
                 var i = 0
                 var tick = 1;
                 for item in xmlDoc.root["trk"].children {
                     if item.name == "trkseg" {
                         for pos in item.children {
                             tick = tick + 1
-                            // pyramid of doom! \o/
-                            if (tick % 15 == 0) {
-                                if let lat = pos.attributes["lat"]  {
-                                    if let lon = pos.attributes["lon"]  {
-                                        if let time = pos.children[0].value {
-                                            if let datetime = self.stringToDate(sDate: time) {
-                                                if prevLat != 0.0 {
-                                                    let distance = (self.haversineDinstance(la1: prevLat, lo1: prevLon, la2: lat.doubleValue, lo2: lon.doubleValue))
-                                                    completeDistance += distance
-                                                    let diff = (datetime.timeIntervalSince(prevTime))
-                                                    let speed = (distance / diff * 3.6 / 1.852)
-                                                    if speed < infinity && speed > maxSpeed {
-                                                        timeOfMaxSpeed = datetime
-                                                        prevTimeOfMaxSpeed = prevTime
-                                                        maxSpeed = speed
-                                                    }
-                                                }
-                                                prevLat = lat.doubleValue
-                                                prevLon = lon.doubleValue
-                                                prevTime = datetime
-                                            }
-                                        }
+                            if (tick % 15 == 0) { // make calculation based on every 15th data point, roughly 20 seconds
+                                guard
+                                    let lat = pos.attributes["lat"],
+                                    let lon = pos.attributes["lon"],
+                                    let time = pos.children[0].value ,
+                                    let datetime = self.stringToDate(sDate: time) else {
+                                        return
+                                }
+                                if prevLat != 0.0 { // skip the first record as it has no predecessor to do the math with
+                                    let distance = (self.haversineDinstance(la1: prevLat, lo1: prevLon, la2: lat.doubleValue, lo2: lon.doubleValue))
+                                    completeDistance += distance
+                                    let diff = (datetime.timeIntervalSince(prevTime))
+                                    let speed = (distance / diff * 3.6 / 1.852)
+                                    if speed < infinity && speed > maxSpeed { // note the extra check for ininity!
+                                        timeOfMaxSpeed = datetime
+                                        prevTimeOfMaxSpeed = prevTime
+                                        maxSpeed = speed
                                     }
                                 }
+                                prevLat = lat.doubleValue
+                                prevLon = lon.doubleValue
+                                prevTime = datetime
                                 i = i + 1;
                             }
                         }
@@ -107,6 +112,9 @@ class WindowController: NSWindowController {
                     print("Number of pos: \(i)")
                     print("Distance     : \(completeDistance / 1000 / 1.852) nm")
                     print("Max speed    : \(maxSpeed) knots @ \(prevTimeOfMaxSpeed) - \(timeOfMaxSpeed)")
+
+                    // wrap the result and send it as notification the the contentViewController
+                    // better way: just pass the stuff to viewController!
 
                     let result: [String:String] = [
                         "numOfPos": String(i),
@@ -138,17 +146,17 @@ class WindowController: NSWindowController {
         let ahaversin = { (angle: Double) -> Double in
             return 2*asin(sqrt(angle))
         }
-        
+
         // Converts from degrees to radians
         let dToR = { (angle: Double) -> Double in
             return (angle / 360) * 2 * M_PI
         }
-        
+
         let lat1 = dToR(la1)
         let lon1 = dToR(lo1)
         let lat2 = dToR(la2)
         let lon2 = dToR(lo2)
-        
+
         return radius * ahaversin(haversin(lat2 - lat1) + cos(lat1) * cos(lat2) * haversin(lon2 - lon1))
     }
 }
