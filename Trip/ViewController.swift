@@ -13,13 +13,19 @@ open class ViewController: NSViewController {
     @IBOutlet weak var numberOfTrackpointsField: NSTextField?
     @IBOutlet weak var distanceField: NSTextField?
     @IBOutlet weak var maxSpeedField: NSTextField?
+    @IBOutlet weak var fullDurationField: NSTextField?
+    @IBOutlet weak var movingDurationField: NSTextField?
     @IBOutlet weak var spinner: NSProgressIndicator?
 
     override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(self, selector: #selector(self.showData), name: NSNotification.Name(rawValue: "DidGetData"), object:nil)
+        spinner?.minValue = 0
+        spinner?.maxValue = 100
+        spinner?.usesThreadedAnimation = true
+
+        self.title = "Trip"
     }
 
     override open var representedObject: Any? {
@@ -28,22 +34,31 @@ open class ViewController: NSViewController {
         }
     }
 
-    func showData(notification: NSNotification) -> () {
-        let dict = notification.object as! NSDictionary
-        let numOfPos = dict["numOfPos"]
-        let completeDistance = dict["completeDistance"]
-        let maxSpeed = dict["maxSpeed"]
-        numberOfTrackpointsField?.stringValue = "\(numOfPos as! String)"
-        distanceField?.stringValue = "\(completeDistance as! String) nm"
-        maxSpeedField?.stringValue = "\(maxSpeed as! String) knots"
+    public func setProgress(progress: Double) {
+        spinner?.increment(by: progress )
     }
 
-    public func startSpinner() -> () {
-        spinner?.startAnimation(nil)
+    public func setMaxSpeed(speed: Double) {
+        maxSpeedField?.stringValue = "\(speed) knots"
     }
 
-    public func stopSpinner() -> () {
-        spinner?.stopAnimation(nil)
+    public func setMovingDuration(duration: Double) {
+        movingDurationField?.stringValue = "\(duration) hours"
     }
 
+    public func setFullDuration(duration: Double) {
+        fullDurationField?.stringValue = "\(duration) hours"
+    }
+
+    public func setDistance(distance: Double) {
+        distanceField?.stringValue = "\(distance) nm"
+    }
+
+    public func setProcessedPoints(points: Int) {
+        numberOfTrackpointsField?.stringValue = "\(points)"
+    }
+
+    public func resetSpinner() {
+        spinner?.increment(by: -((spinner?.doubleValue)!))
+    }
 }
