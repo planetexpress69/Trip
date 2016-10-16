@@ -177,7 +177,7 @@ class WindowController: NSWindowController {
                                 fullDistance += distance
                                 let diff = (datetime.timeIntervalSince(prevTime))
                                 if (diff > 60.0) {
-                                    print("Gap of \(diff) seconds at \(prevTime) to \(datetime) (\(time))")
+                                    print("Gap of \(diff) seconds at \(prevTime) to \(datetime) Dist: \(distance) >>> \(distance / diff)")
                                 }
                                 fullDuration += diff
                             }
