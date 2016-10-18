@@ -14,3 +14,4 @@ Currently calculates the overall distance and the maximum speed for a duration o
 
 ## Dependencies
 Depends on [AEXML](https://github.com/tadija/AEXML) wich comes on stage using the [Swift Package Manager](https://github.com/apple/swift-package-manager).
+So don't forget to run `swift build --configuration release` before opening the project in Xcode.
