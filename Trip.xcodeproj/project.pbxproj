@@ -84,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				"_______Group_AEXML" /* AEXML */,
-				5B4F37AB1DAF79000068FA16 /* Trip */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -93,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Package.swift /* Package.swift */,
+				5B4F37AB1DAF79000068FA16 /* Trip */,
 				"_____Configs_" /* Configs */,
 				Dependencies_ /* Dependencies */,
 				"____Products_" /* Products */,

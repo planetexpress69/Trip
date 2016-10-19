@@ -43,6 +43,8 @@ class WindowController: NSWindowController {
     // ---------------------------------------------------------------------------------------------
     func _load(_ url: URL) {
 
+        let strt = Date()
+
         let viewController = (self.window?.contentViewController) as! ViewController
         viewController.setProgress(progress: 1)
         viewController.resetSpinner()
@@ -197,6 +199,9 @@ class WindowController: NSWindowController {
                     print("Max speed        : \(maxSpeed) knots @ \(prevTimeOfMaxSpeed) - \(timeOfMaxSpeed)")
                     print("Full duration    : \(fullDuration / 60 / 60) hours")
                     print("Moving duration  : \(movingDuration / 60 / 60) hours")
+
+                    let end = Date()
+                    print ("Duration of reading, parsing and calculation: \(end.timeIntervalSince(strt))")
 
                 }
             }
