@@ -49,7 +49,8 @@ class WindowController: NSWindowController {
         viewController.setProgress(progress: 1)
         viewController.resetSpinner()
 
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [weak self]
+            () -> Void in
 
             guard let data = try? Data(contentsOf: url) else {
                 return
@@ -93,6 +94,7 @@ class WindowController: NSWindowController {
                 for item in xmlDoc.root["trk"].children {
                     if item.name == "trkseg" {
                         numberoftrkpts += item.children.count
+
                     }
                 }
 
@@ -107,6 +109,7 @@ class WindowController: NSWindowController {
                             let percent = 100 * tick / numberoftrkpts
                             if (percent > savedPercent) {
                                 DispatchQueue.main.async {
+                                    () -> Void in
                                     viewController.setProgress(progress: 1)
                                 }
                                 savedPercent = percent
@@ -116,7 +119,7 @@ class WindowController: NSWindowController {
                                 let lat = pos.attributes["lat"],
                                 let lon = pos.attributes["lon"],
                                 let time = pos.children[0].value ,
-                                let datetime = self.stringToDate(sDate: time) else {
+                                let datetime = self?.stringToDate(sDate: time) else {
                                     return
                             }
 
@@ -134,8 +137,8 @@ class WindowController: NSWindowController {
                             // calculate speed on 20 second slices
                             if datetime.timeIntervalSince(time20) > 20 {
 
-                                let averageDistance20 = (self.haversineDinstance(la1: lat20, lo1: lon20, la2: lat.doubleValue, lo2: lon.doubleValue))
-                                let speed20 = (averageDistance20 / datetime.timeIntervalSince(time20) * 3.6 / 1.852)
+                                let averageDistance20 = (self?.haversineDinstance(la1: lat20, lo1: lon20, la2: lat.doubleValue, lo2: lon.doubleValue))
+                                let speed20 = (averageDistance20! / datetime.timeIntervalSince(time20) * 3.6 / 1.852)
 
                                 if speed20 < infinity && speed20 > maxSpeed {
                                     maxSpeed = speed20
@@ -148,15 +151,16 @@ class WindowController: NSWindowController {
                                 time20 = datetime
                             }
 
-                            // try to detect moving (rather tricky) and increment actual moving time
+                                // try to detect moving (rather tricky) and increment actual moving time
                             else if datetime.timeIntervalSince(time120) > 300 {
 
-                                let averageDistance120 = (self.haversineDinstance(la1: lat120, lo1: lon120, la2: lat.doubleValue, lo2: lon.doubleValue))
-                                let speed120 = (averageDistance120 / datetime.timeIntervalSince(time120) * 3.6 / 1.852)
+                                let averageDistance120 = (self?.haversineDinstance(la1: lat120, lo1: lon120, la2: lat.doubleValue, lo2: lon.doubleValue))
+                                let speed120 = (averageDistance120! / datetime.timeIntervalSince(time120) * 3.6 / 1.852)
                                 if speed120 > 3.0 { // ASSUMPTION BASED ON MEMORIES
                                     movingDuration += datetime.timeIntervalSince(time120)
 
                                     DispatchQueue.main.async {
+                                        () -> Void in
                                         viewController.setMovingDuration(duration: (movingDuration / 60 / 60).roundTo(places: 3))
                                         viewController.setFullDuration(duration: (fullDuration / 60 / 60).roundTo(places: 3))
                                         viewController.setMaxSpeed(speed: maxSpeed.roundTo(places: 3))
@@ -175,11 +179,11 @@ class WindowController: NSWindowController {
                             // calculate distance to previous trackpoint and add to full distance
                             // same to duration :-)
                             if prevLat != 0.0 { // skip the first record as it has no predecessor to do the math with
-                                let distance = (self.haversineDinstance(la1: prevLat, lo1: prevLon, la2: lat.doubleValue, lo2: lon.doubleValue))
-                                fullDistance += distance
+                                let distance = (self?.haversineDinstance(la1: prevLat, lo1: prevLon, la2: lat.doubleValue, lo2: lon.doubleValue))
+                                fullDistance += distance!
                                 let diff = (datetime.timeIntervalSince(prevTime))
                                 if (diff > 60.0) {
-                                    print("Gap of \(diff) seconds at \(prevTime) to \(datetime) Dist: \(distance) >>> \(distance / diff)")
+                                    print("Gap of \(diff) seconds at \(prevTime) to \(datetime) Dist: \(distance) >>> \(distance! / diff)")
                                 }
                                 fullDuration += diff
                             }
@@ -193,6 +197,7 @@ class WindowController: NSWindowController {
                 }
 
                 DispatchQueue.main.async {
+                    () -> Void in
 
                     print("Number of pos    : \(i)")
                     print("Distance         : \(fullDistance / 1000 / 1.852) nm")
@@ -222,7 +227,7 @@ class WindowController: NSWindowController {
         let haversin = { (angle: Double) -> Double in
             return (1 - cos(angle))/2
         }
-
+        
         let ahaversin = { (angle: Double) -> Double in
             return 2*asin(sqrt(angle))
         }
