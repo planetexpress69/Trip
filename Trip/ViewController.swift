@@ -15,6 +15,7 @@ open class ViewController: NSViewController {
     @IBOutlet weak var maxSpeedField: NSTextField?
     @IBOutlet weak var fullDurationField: NSTextField?
     @IBOutlet weak var movingDurationField: NSTextField?
+    @IBOutlet weak var statusField: NSTextField?
     @IBOutlet weak var spinner: NSProgressIndicator?
 
     override open func viewDidLoad() {
@@ -24,6 +25,7 @@ open class ViewController: NSViewController {
         spinner?.minValue = 0
         spinner?.maxValue = 100
         spinner?.usesThreadedAnimation = true
+        statusField?.stringValue = ""
 
         self.title = "Trip"
     }

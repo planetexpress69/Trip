@@ -48,6 +48,7 @@ class WindowController: NSWindowController {
         let viewController = (self.window?.contentViewController) as! ViewController
         viewController.setProgress(progress: 1)
         viewController.resetSpinner()
+        viewController.statusField?.stringValue = "Loading file"
 
         DispatchQueue.global().async { [weak self]
             () -> Void in
@@ -56,7 +57,17 @@ class WindowController: NSWindowController {
                 return
             }
             do {
+                DispatchQueue.main.async {
+                    () -> Void in
+                    viewController.statusField?.stringValue = "File loaded. Parsing XML now..."
+                }
+
                 let xmlDoc = try AEXMLDocument(xml: data)
+                DispatchQueue.main.async {
+                    () -> Void in
+                    viewController.statusField?.stringValue = "Parsing done. Analyzing track..."
+                }
+
 
                 // memorize
                 var prevLat:Double = 0.0
@@ -90,12 +101,18 @@ class WindowController: NSWindowController {
                 var savedPercent = 0
 
                 // check how many points we need to calculate
+
+
                 var numberoftrkpts = 0
                 for item in xmlDoc.root["trk"].children {
-                    if item.name == "trkseg" {
+                   if item.name == "trkseg" {
                         numberoftrkpts += item.children.count
-
                     }
+                }
+
+                DispatchQueue.main.async {
+                    () -> Void in
+                    viewController.statusField?.stringValue = "Analyzing done. Doing the math..."
                 }
 
                 // loop trkseg
@@ -206,8 +223,11 @@ class WindowController: NSWindowController {
                     print("Full duration    : \(fullDuration / 60 / 60) hours")
                     print("Moving duration  : \(movingDuration / 60 / 60) hours")
 
+
+
                     let end = Date()
                     print ("Duration of reading, parsing and calculation: \(end.timeIntervalSince(strt))")
+                     viewController.statusField?.stringValue = "Done. Took \((end.timeIntervalSince(strt)).roundTo(places: 2)) seconds."
 
                 }
             }

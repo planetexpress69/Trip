@@ -10,7 +10,7 @@ import Cocoa
 
 class MyView: NSView {
 
-    let expectedExt = "gpx"
+    let expectedExt = ["gpx", "GPX"]
 
 
     required init?(coder: NSCoder) {
@@ -31,7 +31,7 @@ class MyView: NSView {
             let ext = NSURL(fileURLWithPath: path).pathExtension else {
                 return []
         }
-        if ext == expectedExt {
+        if expectedExt.contains(ext) {
             return .copy
         }
         return []
