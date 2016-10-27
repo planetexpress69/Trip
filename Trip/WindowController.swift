@@ -20,7 +20,7 @@ class WindowController: NSWindowController {
 
 
     // ---------------------------------------------------------------------------------------------
-    // MARK: - User triggered actions
+    // MARK: User triggered actions
     // ---------------------------------------------------------------------------------------------
     @IBAction func openGPXFile(sender: AnyObject) {
 
@@ -236,13 +236,17 @@ class WindowController: NSWindowController {
         let dToR = { (angle: Double) -> Double in
             return (angle / 360) * 2 * M_PI
         }
-        
+
         let lat1 = dToR(la1)
         let lon1 = dToR(lo1)
         let lat2 = dToR(la2)
         let lon2 = dToR(lo2)
-        
+
         return radius * ahaversin(haversin(lat2 - lat1) + cos(lat1) * cos(lat2) * haversin(lon2 - lon1))
+    }
+
+    open func foo(path: String) -> () {
+        _load(URL(fileURLWithPath: path))
     }
 }
 
