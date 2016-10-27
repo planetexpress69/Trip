@@ -104,6 +104,7 @@ class WindowController: NSWindowController {
                         // loop trkpts
                         for pos in item.children {
 
+
                             tick = tick + 1
 
                             let percent = 100 * tick / numberoftrkpts
