@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B0122461DB0CEF80042588E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37BC1DAF851C0068FA16 /* WindowController.swift */; };
+		5B02EFAD1DC33E87006212DC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B02EFAC1DC33E87006212DC /* MapKit.framework */; };
+		5B02EFAF1DC3485F006212DC /* Trackpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02EFAE1DC3485F006212DC /* Trackpoint.swift */; };
 		5B4F37AD1DAF79000068FA16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37AC1DAF79000068FA16 /* AppDelegate.swift */; };
 		5B4F37AF1DAF79000068FA16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4F37AE1DAF79000068FA16 /* ViewController.swift */; };
 		5B4F37B11DAF79000068FA16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B01DAF79000068FA16 /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B02EFAC1DC33E87006212DC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5B02EFAE1DC3485F006212DC /* Trackpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trackpoint.swift; sourceTree = "<group>"; };
 		5B4F37AA1DAF79000068FA16 /* Trip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4F37AC1DAF79000068FA16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../Trip/AppDelegate.swift; sourceTree = "<group>"; };
 		5B4F37AE1DAF79000068FA16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../Trip/ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B02EFAD1DC33E87006212DC /* MapKit.framework in Frameworks */,
 				5B4F37BB1DAF82120068FA16 /* AEXML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B02EFAB1DC33E87006212DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B02EFAC1DC33E87006212DC /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5B4F37AB1DAF79000068FA16 /* Trip */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +89,7 @@
 				5B4F37BC1DAF851C0068FA16 /* WindowController.swift */,
 				5B4F37AE1DAF79000068FA16 /* ViewController.swift */,
 				5B777C1A1DC1F16900CF420A /* MyView.swift */,
+				5B02EFAE1DC3485F006212DC /* Trackpoint.swift */,
 				5B4F37B01DAF79000068FA16 /* Assets.xcassets */,
 				5B4F37B21DAF79000068FA16 /* Main.storyboard */,
 				5B4F37B51DAF79000068FA16 /* Info.plist */,
@@ -99,6 +113,7 @@
 				"_____Configs_" /* Configs */,
 				Dependencies_ /* Dependencies */,
 				"____Products_" /* Products */,
+				5B02EFAB1DC33E87006212DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B777C1B1DC1F16900CF420A /* MyView.swift in Sources */,
+				5B02EFAF1DC3485F006212DC /* Trackpoint.swift in Sources */,
 				5B4F37AF1DAF79000068FA16 /* ViewController.swift in Sources */,
 				5B0122461DB0CEF80042588E /* WindowController.swift in Sources */,
 				5B4F37AD1DAF79000068FA16 /* AppDelegate.swift in Sources */,

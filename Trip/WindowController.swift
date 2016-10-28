@@ -12,10 +12,14 @@ import AEXML
 
 class WindowController: NSWindowController {
 
+
+    // ---------------------------------------------------------------------------------------------
+    // MARK: Lifecycle
+    // ---------------------------------------------------------------------------------------------
     override func windowDidLoad() {
         super.windowDidLoad()
+        self.window?.minSize = NSSize(width: 600.0, height: 242.0)
 
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     }
 
 
@@ -43,12 +47,16 @@ class WindowController: NSWindowController {
     // ---------------------------------------------------------------------------------------------
     func _load(_ url: URL) {
 
+        self.window?.title = url.relativeString
+
+
         let strt = Date()
 
         let viewController = (self.window?.contentViewController) as! ViewController
         viewController.setProgress(progress: 1)
         viewController.resetSpinner()
         viewController.statusField?.stringValue = "Loading file"
+        //var annotations = [Trackpoint]()
 
         DispatchQueue.global().async { [weak self]
             () -> Void in
@@ -73,7 +81,7 @@ class WindowController: NSWindowController {
                 var prevLat:Double = 0.0
                 var prevLon:Double = 0.0
                 var prevTime: Date = Date()
-                var prevTimeOfMaxSpeed: Date = Date()
+                //var prevTimeOfMaxSpeed: Date = Date()
 
                 // 20 seconds
                 var time20: Date = Date()
@@ -88,7 +96,7 @@ class WindowController: NSWindowController {
                 // results
                 var fullDistance:Double = 0.0
                 var maxSpeed: Double = 0.0
-                var timeOfMaxSpeed: Date = Date()
+                //var timeOfMaxSpeed: Date = Date()
                 var fullDuration: Double = 0.0
                 var movingDuration: Double = 0.0
 
@@ -160,23 +168,43 @@ class WindowController: NSWindowController {
 
                                 if speed20 < infinity && speed20 > maxSpeed {
                                     maxSpeed = speed20
+                                    if (maxSpeed > 8.0) {
+
+                                        let trackpoint = Trackpoint.init(latitude: lat.doubleValue, longitude: lon.doubleValue)
+                                        if let s = self?.dateToString(date: datetime) {
+                                            trackpoint.title = "\(s) @ \(speed20.roundTo(places: 2)) knots"
+                                            trackpoint.speed = speed20.roundTo(places: 2)
+                                            trackpoint.subtitle = "\((movingDuration / 60 / 60).roundTo(places: 2)) hours"
+                                        }
+                                        DispatchQueue.main.async {
+                                            () -> Void in
+                                            viewController.mapView?.addAnnotation(trackpoint)
+                                        }
+                                    }
+                                    //currSpeed = speed20
                                 }
-                                timeOfMaxSpeed = datetime
-                                prevTimeOfMaxSpeed = time20
+                                //timeOfMaxSpeed = datetime
+                                //prevTimeOfMaxSpeed = time20
+
 
                                 lat20 = lat.doubleValue
                                 lon20 = lon.doubleValue
                                 time20 = datetime
                             }
-
-                                // try to detect moving (rather tricky) and increment actual moving time
+                            // try to detect moving (rather tricky) and increment actual moving time
                             else if datetime.timeIntervalSince(time120) > 300 {
 
                                 let averageDistance120 = (self?.haversineDinstance(la1: lat120, lo1: lon120, la2: lat.doubleValue, lo2: lon.doubleValue))
                                 let speed120 = (averageDistance120! / datetime.timeIntervalSince(time120) * 3.6 / 1.852)
-                                if speed120 > 3.0 { // ASSUMPTION BASED ON MEMORIES
+                                if speed120 > 3.5 { // ASSUMPTION BASED ON MEMORIES
                                     movingDuration += datetime.timeIntervalSince(time120)
 
+                                    let trackpoint = Trackpoint.init(latitude: lat.doubleValue, longitude: lon.doubleValue)
+                                    if let s = self?.dateToString(date: datetime) {
+                                        trackpoint.title = "\(s) @ \(speed120.roundTo(places: 2)) knots"
+                                        trackpoint.speed = speed120.roundTo(places: 2)
+                                        trackpoint.subtitle = "\((movingDuration / 60 / 60).roundTo(places: 2)) hours"
+                                    }
                                     DispatchQueue.main.async {
                                         () -> Void in
                                         viewController.setMovingDuration(duration: (movingDuration / 60 / 60).roundTo(places: 3))
@@ -184,11 +212,9 @@ class WindowController: NSWindowController {
                                         viewController.setMaxSpeed(speed: maxSpeed.roundTo(places: 3))
                                         viewController.setDistance(distance: (fullDistance / 1000 / 1.852).roundTo(places: 3))
                                         viewController.setProcessedPoints(points: i)
+                                        viewController.mapView?.addAnnotation(trackpoint)
                                     }
-                                } else {
-
                                 }
-
                                 lat120 = lat.doubleValue
                                 lon120 = lon.doubleValue
                                 time120 = datetime
@@ -219,6 +245,7 @@ class WindowController: NSWindowController {
 
                     let end = Date()
                     viewController.statusField?.stringValue = "Done. Took \((end.timeIntervalSince(strt)).roundTo(places: 2)) seconds."
+                    //viewController.mapView?.addAnnotations(annotations)
 
                 }
             }
@@ -228,12 +255,30 @@ class WindowController: NSWindowController {
         } // end async
     }
 
+
+    // ---------------------------------------------------------------------------------------------
+    // MARK: Date helper
+    // ---------------------------------------------------------------------------------------------
     func stringToDate(sDate:String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return formatter.date(from: sDate)
     }
 
+    // ---------------------------------------------------------------------------------------------
+    // MARK: Date helper
+    // ---------------------------------------------------------------------------------------------
+    func dateToString(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return formatter.string(from: date)
+    }
+
+
+
+    // ---------------------------------------------------------------------------------------------
+    // MARK: Haversine distance math
+    // ---------------------------------------------------------------------------------------------
     func haversineDinstance(la1: Double, lo1: Double, la2: Double, lo2: Double, radius: Double = 6367444.7) -> Double {
 
         let haversin = { (angle: Double) -> Double in
@@ -257,6 +302,10 @@ class WindowController: NSWindowController {
         return radius * ahaversin(haversin(lat2 - lat1) + cos(lat1) * cos(lat2) * haversin(lon2 - lon1))
     }
 
+
+    // ---------------------------------------------------------------------------------------------
+    // MARK: Exposed loading method
+    // ---------------------------------------------------------------------------------------------
     open func foo(path: String) -> () {
         _load(URL(fileURLWithPath: path))
     }
