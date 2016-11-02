@@ -78,27 +78,27 @@ class WindowController: NSWindowController {
 
 
                 // memorize
-                var prevLat:Double = 0.0
-                var prevLon:Double = 0.0
-                var prevTime: Date = Date()
+                var prevLat = 0.0
+                var prevLon = 0.0
+                var prevTime = Date()
                 //var prevTimeOfMaxSpeed: Date = Date()
 
                 // 20 seconds
-                var time20: Date = Date()
-                var lat20: Double = 0.0
-                var lon20: Double = 0.0
+                var time20 = Date()
+                var lat20 = 0.0
+                var lon20 = 0.0
 
                 // two minutes
-                var time120: Date = Date()
-                var lat120: Double = 0.0
-                var lon120: Double = 0.0
+                var time120 = Date()
+                var lat120 = 0.0
+                var lon120 = 0.0
 
                 // results
-                var fullDistance:Double = 0.0
-                var maxSpeed: Double = 0.0
+                var fullDistance = 0.0
+                var maxSpeed = 0.0
                 //var timeOfMaxSpeed: Date = Date()
-                var fullDuration: Double = 0.0
-                var movingDuration: Double = 0.0
+                var fullDuration = 0.0
+                var movingDuration = 0.0
 
                 // define infinity
                 let infinity = Double.infinity
@@ -107,6 +107,15 @@ class WindowController: NSWindowController {
                 var i = 0
                 var tick = 1
                 var savedPercent = 0
+
+                // top left
+                var largestLat = 0.0
+                var smallestLon = 0.0
+
+                // bottom right
+                var smallestLat = 0.0
+                var largestLon = 0.0
+
 
                 // check how many points we need to calculate
 
@@ -149,6 +158,7 @@ class WindowController: NSWindowController {
                                     return
                             }
 
+
                             // first round - so memorize some stuff
                             if i == 0 {
                                 time20 = datetime
@@ -158,6 +168,27 @@ class WindowController: NSWindowController {
                                 time120 = datetime
                                 lat120 = lat.doubleValue
                                 lon120 = lon.doubleValue
+
+                                largestLat = lat.doubleValue
+                                smallestLon = lon.doubleValue
+
+                                smallestLat = lat.doubleValue
+                                largestLon = lon.doubleValue
+                            }
+
+                            if (i > 0) {
+                                if (lat.doubleValue < smallestLat) {
+                                    smallestLat = lat.doubleValue
+                                }
+                                if (lon.doubleValue < smallestLon) {
+                                    smallestLon = lon.doubleValue
+                                }
+                                if (lat.doubleValue > largestLat) {
+                                    largestLat = lat.doubleValue
+                                }
+                                if (lon.doubleValue > largestLon) {
+                                    largestLon = lon.doubleValue
+                                }
                             }
 
                             // calculate speed on 20 second slices
@@ -176,7 +207,7 @@ class WindowController: NSWindowController {
                                             trackpoint.speed = speed20.roundTo(places: 2)
                                             trackpoint.subtitle = "\((movingDuration / 60 / 60).roundTo(places: 2)) hours"
                                         }
-                                        DispatchQueue.main.async {
+                                        DispatchQueue.main.async { [weak self]
                                             () -> Void in
                                             viewController.mapView?.addAnnotation(trackpoint)
                                         }
@@ -190,6 +221,9 @@ class WindowController: NSWindowController {
                                 lat20 = lat.doubleValue
                                 lon20 = lon.doubleValue
                                 time20 = datetime
+
+
+
                             }
                             // try to detect moving (rather tricky) and increment actual moving time
                             else if datetime.timeIntervalSince(time120) > 300 {
@@ -205,7 +239,7 @@ class WindowController: NSWindowController {
                                         trackpoint.speed = speed120.roundTo(places: 2)
                                         trackpoint.subtitle = "\((movingDuration / 60 / 60).roundTo(places: 2)) hours"
                                     }
-                                    DispatchQueue.main.async {
+                                    DispatchQueue.main.async { [weak self]
                                         () -> Void in
                                         viewController.setMovingDuration(duration: (movingDuration / 60 / 60).roundTo(places: 3))
                                         viewController.setFullDuration(duration: (fullDuration / 60 / 60).roundTo(places: 3))
@@ -213,6 +247,7 @@ class WindowController: NSWindowController {
                                         viewController.setDistance(distance: (fullDistance / 1000 / 1.852).roundTo(places: 3))
                                         viewController.setProcessedPoints(points: i)
                                         viewController.mapView?.addAnnotation(trackpoint)
+
                                     }
                                 }
                                 lat120 = lat.doubleValue
@@ -246,7 +281,8 @@ class WindowController: NSWindowController {
                     let end = Date()
                     viewController.statusField?.stringValue = "Done. Took \((end.timeIntervalSince(strt)).roundTo(places: 2)) seconds."
                     //viewController.mapView?.addAnnotations(annotations)
-
+                    let annos = viewController.mapView?.annotations
+                    viewController.mapView?.showAnnotations(annos!, animated: true)
                 }
             }
             catch {
