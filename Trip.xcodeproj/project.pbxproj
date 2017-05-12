@@ -15,12 +15,12 @@
 		5B4F37B11DAF79000068FA16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B01DAF79000068FA16 /* Assets.xcassets */; };
 		5B4F37B41DAF79000068FA16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B4F37B21DAF79000068FA16 /* Main.storyboard */; };
 		5B4F37BB1DAF82120068FA16 /* AEXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_AEXML" /* AEXML.framework */; };
+		5B59D4391EB22EE300E2F273 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59D4331EB22EE300E2F273 /* Document.swift */; };
+		5B59D43A1EB22EE300E2F273 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59D4341EB22EE300E2F273 /* Element.swift */; };
+		5B59D43B1EB22EE300E2F273 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59D4351EB22EE300E2F273 /* Error.swift */; };
+		5B59D43C1EB22EE300E2F273 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59D4371EB22EE300E2F273 /* Options.swift */; };
+		5B59D43D1EB22EE300E2F273 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59D4381EB22EE300E2F273 /* Parser.swift */; };
 		5B777C1B1DC1F16900CF420A /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B777C1A1DC1F16900CF420A /* MyView.swift */; };
-		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */; };
-		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */; };
-		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */; };
-		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift */; };
-		"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = "__PBXFileRef_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,13 +43,15 @@
 		5B4F37B31DAF79000068FA16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B4F37B51DAF79000068FA16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Trip/Info.plist; sourceTree = "<group>"; };
 		5B4F37BC1DAF851C0068FA16 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		5B59D4321EB22EE300E2F273 /* AEXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AEXML.h; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/AEXML.h"; sourceTree = SOURCE_ROOT; };
+		5B59D4331EB22EE300E2F273 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/Document.swift"; sourceTree = SOURCE_ROOT; };
+		5B59D4341EB22EE300E2F273 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Element.swift; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/Element.swift"; sourceTree = SOURCE_ROOT; };
+		5B59D4351EB22EE300E2F273 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/Error.swift"; sourceTree = SOURCE_ROOT; };
+		5B59D4361EB22EE300E2F273 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/Info.plist"; sourceTree = SOURCE_ROOT; };
+		5B59D4371EB22EE300E2F273 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Options.swift; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/Options.swift"; sourceTree = SOURCE_ROOT; };
+		5B59D4381EB22EE300E2F273 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = ".build/checkouts/AEXML.git--1992474868199569405/Sources/Parser.swift"; sourceTree = SOURCE_ROOT; };
 		5B777C1A1DC1F16900CF420A /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
-		"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Trip.xcodeproj/Configs/Project.xcconfig /* Trip.xcodeproj/Configs/Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Trip.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
 		"_____Product_AEXML" /* AEXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AEXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,11 +139,13 @@
 		"_______Group_AEXML" /* AEXML */ = {
 			isa = PBXGroup;
 			children = (
-				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift */,
-				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift */,
-				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift */,
-				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift */,
-				"__PBXFileRef_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift */,
+				5B59D4321EB22EE300E2F273 /* AEXML.h */,
+				5B59D4331EB22EE300E2F273 /* Document.swift */,
+				5B59D4341EB22EE300E2F273 /* Element.swift */,
+				5B59D4351EB22EE300E2F273 /* Error.swift */,
+				5B59D4361EB22EE300E2F273 /* Info.plist */,
+				5B59D4371EB22EE300E2F273 /* Options.swift */,
+				5B59D4381EB22EE300E2F273 /* Parser.swift */,
 			);
 			name = AEXML;
 			path = "Packages/AEXML-4.0.1/Sources";
@@ -248,11 +252,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Document.swift" /* Document.swift in Sources */,
-				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Element.swift" /* Element.swift in Sources */,
-				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Error.swift" /* Error.swift in Sources */,
-				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Options.swift" /* Options.swift in Sources */,
-				"__src_cc_ref_Packages/AEXML-4.0.1/Sources/Parser.swift" /* Parser.swift in Sources */,
+				5B59D43B1EB22EE300E2F273 /* Error.swift in Sources */,
+				5B59D43D1EB22EE300E2F273 /* Parser.swift in Sources */,
+				5B59D4391EB22EE300E2F273 /* Document.swift in Sources */,
+				5B59D43C1EB22EE300E2F273 /* Options.swift in Sources */,
+				5B59D43A1EB22EE300E2F273 /* Element.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

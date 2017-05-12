@@ -207,7 +207,7 @@ class WindowController: NSWindowController {
                                             trackpoint.speed = speed20.roundTo(places: 2)
                                             trackpoint.subtitle = "\((movingDuration / 60 / 60).roundTo(places: 2)) hours"
                                         }
-                                        DispatchQueue.main.async { [weak self]
+                                        DispatchQueue.main.async {
                                             () -> Void in
                                             viewController.mapView?.addAnnotation(trackpoint)
                                         }
@@ -239,7 +239,7 @@ class WindowController: NSWindowController {
                                         trackpoint.speed = speed120.roundTo(places: 2)
                                         trackpoint.subtitle = "\((movingDuration / 60 / 60).roundTo(places: 2)) hours"
                                     }
-                                    DispatchQueue.main.async { [weak self]
+                                    DispatchQueue.main.async {
                                         () -> Void in
                                         viewController.setMovingDuration(duration: (movingDuration / 60 / 60).roundTo(places: 3))
                                         viewController.setFullDuration(duration: (fullDuration / 60 / 60).roundTo(places: 3))
@@ -262,7 +262,7 @@ class WindowController: NSWindowController {
                                 fullDistance += distance!
                                 let diff = (datetime.timeIntervalSince(prevTime))
                                 if (diff > 60.0) {
-                                    print("Gap of \(diff) seconds at \(prevTime) to \(datetime) Dist: \(distance) >>> \(distance! / diff)")
+                                    print("Gap of \(diff) seconds at \(prevTime) to \(datetime) Dist: \(String(describing: distance)) >>> \(distance! / diff)")
                                 }
                                 fullDuration += diff
                             }
@@ -327,7 +327,7 @@ class WindowController: NSWindowController {
         
         // Converts from degrees to radians
         let dToR = { (angle: Double) -> Double in
-            return (angle / 360) * 2 * M_PI
+            return (angle / 360) * 2 * .pi
         }
 
         let lat1 = dToR(la1)
